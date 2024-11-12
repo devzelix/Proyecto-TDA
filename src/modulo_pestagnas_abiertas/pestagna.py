@@ -11,15 +11,20 @@ class Pestagna:
 
         else:
 
-            print("Abriste una nueva pestagna con: " + self.__historial_navegacion.obtener_direccion())
             self.__historial_navegacion.guardar_historial(self.__historial_navegacion.obtener_direccion())
 
-    def interpretar_comando(self, comando:str):
+    def interpretar_comando(self, comando):
 
         comando = comando.split(" ")
         if comando[0] == "ir":
 
-            self.__historial_navegacion.ir(comando[1])
+            try:
+
+                self.__historial_navegacion.ir(comando[1])
+
+            except IndexError:
+
+                print("Ingrese correctamente el comando.")
 
         elif comando[0] == "atras":
 
@@ -28,6 +33,10 @@ class Pestagna:
         elif comando[0] == "adelante":
 
             self.__historial_navegacion.avanzar()
+
+        elif comando[0] == "mostrar_historial":
+
+            self.__historial_navegacion.mostrar_historial()
 
         else:
 

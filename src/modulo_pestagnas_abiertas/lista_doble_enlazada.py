@@ -49,9 +49,16 @@ class ListaDobleEnlazada:
 
         if self.__nodo_actual == self.__cabeza:
 
-            self.__cabeza = self.__cabeza.obtener_siguiente()
-            self.__cabeza.establecer_anterior(None)
-            self.__nodo_actual = self.__cabeza
+            if self.__cabeza.obtener_siguiente():
+
+                self.__cabeza = self.__cabeza.obtener_siguiente()
+                self.__cabeza.establecer_anterior(None)
+                self.__nodo_actual = self.__cabeza
+                return True
+
+            else:
+
+                return False
 
         else:
 
@@ -62,10 +69,18 @@ class ListaDobleEnlazada:
 
                     anterior = actual.obtener_anterior()
                     siguiente = actual.obtener_siguiente()
-                    anterior.establecer_siguiente(siguiente)
-                    siguiente.establecer_anterior(anterior)
-                    self.__nodo_actual = siguiente
-                    break
+                    if siguiente: 
+
+                        anterior.establecer_siguiente(siguiente)
+                        siguiente.establecer_anterior(anterior)
+                        self.__nodo_actual = siguiente
+
+                    else:
+
+                        anterior.establecer_siguiente(None)
+                        self.__nodo_actual = anterior
+
+                    return True
 
                 actual = actual.obtener_siguiente()
 

@@ -1,4 +1,4 @@
 Ruta,IP,Dominio
-assets/files/host/wikipedia.html,192.168.102,www.wikipedia.com
-assets/files/host/prueba2.html,192.168.101,www.prueba2.com
-assets/files/host/prueba3.html,192.168.103,www.prueba3.com
+assets/files/host/index.html,192.168.100,www.inicio.com
+assets/files/host/about.html,192.168.101,www.sobreNosotros.com
+assets/files/host/contact.html,192.168.103,www.contacto.com

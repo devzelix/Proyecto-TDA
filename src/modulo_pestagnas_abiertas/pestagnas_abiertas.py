@@ -6,7 +6,7 @@ class PestagnasAbiertas:
     def __init__(self):
 
         self.__pestagnas = ListaDobleEnlazada()
-        self.__pestagnas.agregar_nodo(Pestagna("www.wikipedia.com"))
+        self.__pestagnas.agregar_nodo(Pestagna("www.inicio.com"))
         self.__pestagna_actual = self.__pestagnas.obtener_nodo_actual().obtener_valor()
 
     def abrir_pestagna(self, direccion):
@@ -16,13 +16,20 @@ class PestagnasAbiertas:
 
             self.__pestagnas.agregar_nodo(pestagna)
             self.__pestagna_actual = self.__pestagnas.obtener_nodo_actual().obtener_valor()
+            print("Abriste una nueva pestagna con: " + self.__pestagna_actual.obtener_direccion())
 
     def cerrar_pestagna(self):
 
         print("Cerrando la pestagna con: " + self.__pestagna_actual.obtener_direccion())
-        self.__pestagnas.eliminar_nodo()
-        self.__pestagna_actual = self.__pestagnas.obtener_nodo_actual().obtener_valor()
-        print("Ahora estas en la pestagna con: " + self.__pestagna_actual.obtener_direccion())
+        if self.__pestagnas.eliminar_nodo():
+
+            self.__pestagna_actual = self.__pestagnas.obtener_nodo_actual().obtener_valor()
+            print("Ahora estas en la pestagna con: " + self.__pestagna_actual.obtener_direccion())
+            return True
+
+        else:
+
+            return False
 
     def cambiar_pestagna(self, numero):
 
@@ -41,8 +48,12 @@ class PestagnasAbiertas:
         pestagnas = self.__pestagnas.obtener_elementos()
         for i in range(len(pestagnas)):
 
-            print("0" * (len(str(len(pestagnas))) - len(str(i + 1))) + str(i + 1) + ") " + pestagnas[i].obtener_direccion())
+            print(str(i + 1) + ". " + pestagnas[i].obtener_direccion())
 
-    def obtener_pestagna_actual(self):
+    def obtener_direccion_pestagna_actual(self):
 
-        return self.__pestagna_actual
+        return self.__pestagna_actual.obtener_direccion()
+
+    def interpretar_comando(self, comando):
+
+        self.__pestagna_actual.interpretar_comando(comando)

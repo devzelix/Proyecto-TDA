@@ -16,6 +16,7 @@ class HistorialNavegacion:
 
             lector = csv.reader(archivo, delimiter=",")
             datos = list(lector)
+            datos.pop(0)
             for fila in datos:
 
                 for columna in fila:
@@ -128,7 +129,7 @@ class HistorialNavegacion:
 
                     for i in range(1, len(historial)):
 
-                        print("0" * (len(str(len(historial) - 1)) - len(str(i))) + str(i) + ") " + historial[i][0] + ", " + historial[i][1] + ", " + historial[i][2])
+                        print(str(i) + ". " + historial[i][0] + "   " + historial[i][1] + "   " + historial[i][2])
 
                 else:
 
