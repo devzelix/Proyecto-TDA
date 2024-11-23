@@ -10,7 +10,7 @@ class NavegadorWeb:
 
     def interpretar_comandos(self):
 
-        print("Bienvenido al simulador de Navegador Web en Consla.")
+        print("Bienvenido al simulador de Navegador Web en Consola.")
         print("Escribe un comando para comenzar. Usa 'ayuda' para ver la lista de comandos disponibles.")
 
         while True:
@@ -98,6 +98,23 @@ class NavegadorWeb:
             elif instruccion == "listar_paginas":
 
                 listar_paginas()
+
+            elif instruccion == "ayuda":
+
+                print("Lista de Comandos:")
+                print("\n- ir <url o ip> (Te dirigira a la direccion indicada en la misma pestagna)")
+                print("- atras (Te redirige a la direccion anterior de la pestagna)")
+                print("- adelante (te redirige a la direccion siguiente de la pestagna)")
+                print("- mostrar_historial (te muestra el historial de navegacion completo)")
+                print("- nueva_pestagna <url o ip> (Te crea una nueva pestagna con la direccion indicada)")
+                print("- cerrar_pestagna (Te cierra la pestagna actual)")
+                print("- cambiar_pestagna <n> (Te cambia a la pestagna que corresponda al numero indicado)")
+                print("- mostrar_pestagnas (Te muestra todas las pestagnas abiertas)")
+                print("- descargar <url> (Te agnade a la cola de descarga el archivo de la url indicada)")
+                print("- mostrar_descargas (Te muestra todas las descargas que estan pendientes)")
+                print("- listar_paginas (Te muestra el url de todas las paginas disponibles)")
+                print("- mostrar_contenido <modalidad> (Te muestra el contenido de la pagina cual te encuentras ya sea en 'basico' o 'texto_plano')")
+                print("- salir (Cierra el navegador)")
 
             elif instruccion == "salir":
 
